@@ -1,0 +1,23 @@
+---
+abstract: 'Parser for W3C XML Schema Definition (XSD)'
+author:
+  - 'Robin Smidsrød <robin@smidsrod.no>'
+build_requires:
+  English: 0
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.31
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.101612, CPAN::Meta::Converter version 2.101610'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: W3C-XMLSchema
+requires:
+  Moose: 0
+  XML::Rabbit: 0.0.1
+  perl: 5.008
+resources:
+  repository: git://github.com/robinsmidsrod/W3C-XMLSchema.git
+version: 0.0.1
