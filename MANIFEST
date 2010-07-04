@@ -6,6 +6,7 @@ META.json
 META.yml
 Makefile.PL
 README
+README.mkdn
 bin/xsd_structure
 dist.ini
 lib/W3C/XMLSchema.pm

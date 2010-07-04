@@ -16,8 +16,8 @@ meta-spec:
 name: W3C-XMLSchema
 requires:
   Moose: 0
-  XML::Rabbit: 0.0.1
+  XML::Rabbit: 0.0.2
   perl: 5.008
 resources:
   repository: git://github.com/robinsmidsrod/W3C-XMLSchema.git
-version: 0.0.1
+version: 0.0.2

@@ -3,7 +3,7 @@ use warnings;
 
 package W3C::XMLSchema;
 BEGIN {
-  $W3C::XMLSchema::VERSION = '0.0.1';
+  $W3C::XMLSchema::VERSION = '0.0.2';
 }
 use Moose;
 with 'XML::Rabbit::RootNode';
@@ -70,7 +70,7 @@ W3C::XMLSchema - Parser for W3C XML Schema Definition (XSD)
 
 =head1 VERSION
 
-version 0.0.1
+version 0.0.2
 
 =head1 SYNOPSIS
 

@@ -3,7 +3,7 @@ use warnings;
 
 package W3C::XMLSchema::Attribute;
 BEGIN {
-  $W3C::XMLSchema::Attribute::VERSION = '0.0.1';
+  $W3C::XMLSchema::Attribute::VERSION = '0.0.2';
 }
 use Moose;
 with 'XML::Rabbit::Node';
@@ -45,7 +45,7 @@ W3C::XMLSchema::Attribute - XMLSchema Attribute Definition
 
 =head1 VERSION
 
-version 0.0.1
+version 0.0.2
 
 =head1 DESCRIPTION
 

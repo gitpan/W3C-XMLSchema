@@ -26,9 +26,9 @@ my %WriteMakefileArgs = (
   'NAME' => 'W3C::XMLSchema',
   'PREREQ_PM' => {
     'Moose' => '0',
-    'XML::Rabbit' => '0.0.1'
+    'XML::Rabbit' => '0.0.2'
   },
-  'VERSION' => '0.0.1',
+  'VERSION' => '0.0.2',
   'test' => {
     'TESTS' => 't/*.t'
   }
