@@ -2,35 +2,36 @@
 use strict;
 use warnings;
 
- BEGIN { require 5.008; } 
+use 5.008;
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Parser for W3C XML Schema Definition (XSD)',
-  'AUTHOR' => 'Robin Smidsrød <robin@smidsrod.no>',
-  'BUILD_REQUIRES' => {
-    'English' => '0',
-    'Test::More' => '0'
+  "ABSTRACT" => "Parser for W3C XML Schema Definition (XSD)",
+  "AUTHOR" => "Robin Smidsr\303\270d <robin\@smidsrod.no>",
+  "BUILD_REQUIRES" => {
+    "English" => 0,
+    "Test::More" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'W3C-XMLSchema',
-  'EXE_FILES' => [
-    'bin/xsd_structure'
+  "DISTNAME" => "W3C-XMLSchema",
+  "EXE_FILES" => [
+    "bin/xsd_structure"
   ],
-  'LICENSE' => 'perl',
-  'NAME' => 'W3C::XMLSchema',
-  'PREREQ_PM' => {
-    'Moose' => '0',
-    'XML::Rabbit' => '0.0.2'
+  "LICENSE" => "perl",
+  "NAME" => "W3C::XMLSchema",
+  "PREREQ_PM" => {
+    "XML::Rabbit" => "0.0.2",
+    "strict" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '0.0.2',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.0.3",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

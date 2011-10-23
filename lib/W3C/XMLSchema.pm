@@ -2,64 +2,37 @@ use strict;
 use warnings;
 
 package W3C::XMLSchema;
-BEGIN {
-  $W3C::XMLSchema::VERSION = '0.0.2';
+{
+  $W3C::XMLSchema::VERSION = '0.0.3';
 }
-use Moose;
-with 'XML::Rabbit::RootNode';
+use XML::Rabbit::Root 0.1.0;
 
 # ABSTRACT: Parser for W3C XML Schema Definition (XSD)
 
 use 5.008;
 
-
-has '+namespace_map' => (
-    default => sub { {
-        'xsd' => 'http://www.w3.org/2001/XMLSchema',
-    } }
-);
+add_xpath_namespace 'xsd' => 'http://www.w3.org/2001/XMLSchema';
 
 
-has 'target_namespace' => (
-    traits      => [qw/XPathValue/],
-    xpath_query => './@targetNamespace',
-);
+has_xpath_value 'target_namespace' => './@targetNamespace';
 
 
-has 'attribute_groups' => (
-    isa         => 'ArrayRef[W3C::XMLSchema::AttributeGroup]',
-    traits      => [qw/XPathObjectList/],
-    xpath_query => './xsd:attributeGroup',
-);
+has_xpath_object_list 'attribute_groups' => './xsd:attributeGroup' => 'W3C::XMLSchema::AttributeGroup';
 
 
-has 'groups' => (
-    isa         => 'ArrayRef[W3C::XMLSchema::Group]',
-    traits      => [qw/XPathObjectList/],
-    xpath_query => './xsd:group',
-);
+has_xpath_object_list 'groups' => './xsd:group' => 'W3C::XMLSchema::Group';
 
 
-has 'complex_types' => (
-    isa         => 'ArrayRef[W3C::XMLSchema::ComplexType]',
-    traits      => [qw/XPathObjectList/],
-    xpath_query => './xsd:complexType',
-);
+has_xpath_object_list 'complex_types' => './xsd:complexType' => 'W3C::XMLSchema::ComplexType';
 
 
-has 'elements' => (
-    isa         => 'ArrayRef[W3C::XMLSchema::Element]',
-    traits      => [qw/XPathObjectList/],
-    xpath_query => './xsd:element',
-);
+has_xpath_object_list 'elements' => './xsd:element' => 'W3C::XMLSchema::Element';
 
-no Moose;
-__PACKAGE__->meta->make_immutable();
-
+finalize_class();
 1;
 
 
-__END__
+
 =pod
 
 =encoding utf-8
@@ -70,13 +43,13 @@ W3C::XMLSchema - Parser for W3C XML Schema Definition (XSD)
 
 =head1 VERSION
 
-version 0.0.2
+version 0.0.3
 
 =head1 SYNOPSIS
 
     use W3C::XMLSchema;
 
-    my $xsd=W3C::XMLSchema->new( file => shift );
+    my $xsd = W3C::XMLSchema->new( file => shift );
     print "Target namespace: " . $xsd->target_namespace . "\n";
 
     print "Attribute groups:\n";
@@ -97,10 +70,6 @@ This is a module that makes it easy to iterate over and extract information
 from an XML Schema definition (aka XSD), as defined by the W3C.
 
 =head1 ATTRIBUTES
-
-=head2 namespace_map
-
-Namespace map for XMLSchema definition.
 
 =head2 target_namespace
 
@@ -161,9 +130,11 @@ L<XML::LibXML>
 
 =back
 
-=for :stopwords CPAN AnnoCPAN RT CPANTS Kwalitee diff
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
 
 =head1 SUPPORT
+
+=head2 Perldoc
 
 You can find documentation for this module with the perldoc command.
 
@@ -171,17 +142,32 @@ You can find documentation for this module with the perldoc command.
 
 =head2 Websites
 
+The following websites have more information about this module, and may be of help to you. As always,
+in addition to those websites please use your favorite search engine to discover more resources.
+
 =over 4
 
 =item *
 
 Search CPAN
 
+The default CPAN search engine, useful to view POD in HTML format.
+
 L<http://search.cpan.org/dist/W3C-XMLSchema>
 
 =item *
 
-AnnoCPAN: Annotated CPAN documentation
+RT: CPAN's Bug Tracker
+
+The RT ( Request Tracker ) website is the default bug/issue tracking system for CPAN.
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=W3C-XMLSchema>
+
+=item *
+
+AnnoCPAN
+
+The AnnoCPAN is a website that allows community annonations of Perl module documentation.
 
 L<http://annocpan.org/dist/W3C-XMLSchema>
 
@@ -189,66 +175,81 @@ L<http://annocpan.org/dist/W3C-XMLSchema>
 
 CPAN Ratings
 
+The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
+
 L<http://cpanratings.perl.org/d/W3C-XMLSchema>
 
 =item *
 
 CPAN Forum
 
+The CPAN Forum is a web forum for discussing Perl modules.
+
 L<http://cpanforum.com/dist/W3C-XMLSchema>
 
 =item *
 
-RT: CPAN's Bug Tracker
+CPANTS
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=W3C-XMLSchema>
-
-=item *
-
-CPANTS Kwalitee
+The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
 
 L<http://cpants.perl.org/dist/overview/W3C-XMLSchema>
 
 =item *
 
-CPAN Testers Results
+CPAN Testers
 
-L<http://cpantesters.org/distro/W/W3C-XMLSchema.html>
+The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
+
+L<http://www.cpantesters.org/distro/W/W3C-XMLSchema>
 
 =item *
 
 CPAN Testers Matrix
 
+The CPAN Testers Matrix is a website that provides a visual way to determine what Perls/platforms PASSed for a distribution.
+
 L<http://matrix.cpantesters.org/?dist=W3C-XMLSchema>
 
 =item *
 
-Source Code Repository
+CPAN Testers Dependencies
+
+The CPAN Testers Dependencies is a website that shows a chart of the test results of all dependencies for a distribution.
+
+L<http://deps.cpantesters.org/?module=W3C::XMLSchema>
+
+=back
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests by email to C<bug-w3c-xmlschema at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=W3C-XMLSchema>. You will be automatically notified of any
+progress on the request by the system.
+
+=head2 Source Code
 
 The code is open to the world, and available for you to hack on. Please feel free to browse it and play
 with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
 from your repository :)
 
-L<git://github.com/robinsmidsrod/W3C-XMLSchema.git>
+L<http://github.com/robinsmidsrod/W3C-XMLSchema>
 
-=back
-
-=head2 Bugs
-
-Please report any bugs or feature requests to C<bug-w3c-xmlschema at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=W3C-XMLSchema>.  I will be
-notified, and then you'll automatically be notified of progress on your bug as I make changes.
+  git clone git://github.com/robinsmidsrod/W3C-XMLSchema.git
 
 =head1 AUTHOR
 
-  Robin Smidsrød <robin@smidsrod.no>
+Robin Smidsrød <robin@smidsrod.no>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Robin Smidsrød.
+This software is copyright (c) 2011 by Robin Smidsrød.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
 

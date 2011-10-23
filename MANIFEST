@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-README.mkdn
 bin/xsd_structure
 dist.ini
 lib/W3C/XMLSchema.pm
@@ -16,10 +15,12 @@ lib/W3C/XMLSchema/ComplexType.pm
 lib/W3C/XMLSchema/Element.pm
 lib/W3C/XMLSchema/Group.pm
 lib/W3C/XMLSchema/Sequence.pm
+perlcritic.rc
 t/00-load.t
 t/10_parse_imsqti.t
 t/author-critic.t
 t/data/imsqti_v2p1.xsd
+t/release-eol.t
 t/release-kwalitee.t
 t/release-no-tabs.t
 t/release-pod-coverage.t

@@ -2,47 +2,30 @@ use strict;
 use warnings;
 
 package W3C::XMLSchema::AttributeGroup;
-BEGIN {
-  $W3C::XMLSchema::AttributeGroup::VERSION = '0.0.2';
+{
+  $W3C::XMLSchema::AttributeGroup::VERSION = '0.0.3';
 }
-use Moose;
-with 'XML::Rabbit::Node';
+use XML::Rabbit;
 
 # ABSTRACT: XMLSchema Attribute Group Definition
 
 
-has 'name' => (
-    traits      => [qw/XPathValue/],
-    xpath_query => './@name',
-);
+has_xpath_value 'name' => './@name';
 
 
-has 'ref' => (
-    traits      => [qw/XPathValue/],
-    xpath_query => './@ref',
-);
+has_xpath_value 'ref' => './@ref';
 
 
-has 'attribute_groups' => (
-    isa         => 'ArrayRef[W3C::XMLSchema::AttributeGroup]',
-    traits      => [qw/XPathObjectList/],
-    xpath_query => './xsd:attributeGroup',
-);
+has_xpath_object_list 'attribute_groups' => './xsd:attributeGroup' => 'W3C::XMLSchema::AttributeGroup';
 
 
-has 'attributes' => (
-    isa         => 'ArrayRef[W3C::XMLSchema::Attribute]',
-    traits      => [qw/XPathObjectList/],
-    xpath_query => './xsd:attribute',
-);
+has_xpath_object_list 'attributes' => './xsd:attribute' => 'W3C::XMLSchema::Attribute';
 
-no Moose;
-__PACKAGE__->meta->make_immutable();
-
+finalize_class();
 1;
 
 
-__END__
+
 =pod
 
 =encoding utf-8
@@ -53,7 +36,7 @@ W3C::XMLSchema::AttributeGroup - XMLSchema Attribute Group Definition
 
 =head1 VERSION
 
-version 0.0.2
+version 0.0.3
 
 =head1 DESCRIPTION
 
@@ -81,14 +64,17 @@ List of attributes associated with this attribute group. Instance type L<W3C::XM
 
 =head1 AUTHOR
 
-  Robin Smidsrød <robin@smidsrod.no>
+Robin Smidsrød <robin@smidsrod.no>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Robin Smidsrød.
+This software is copyright (c) 2011 by Robin Smidsrød.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
 

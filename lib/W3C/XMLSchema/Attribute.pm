@@ -2,39 +2,27 @@ use strict;
 use warnings;
 
 package W3C::XMLSchema::Attribute;
-BEGIN {
-  $W3C::XMLSchema::Attribute::VERSION = '0.0.2';
+{
+  $W3C::XMLSchema::Attribute::VERSION = '0.0.3';
 }
-use Moose;
-with 'XML::Rabbit::Node';
+use XML::Rabbit;
 
 # ABSTRACT: XMLSchema Attribute Definition
 
 
-has 'name' => (
-    traits      => [qw/XPathValue/],
-    xpath_query => './@name',
-);
+has_xpath_value 'name' => './@name';
 
 
-has 'type' => (
-    traits      => [qw/XPathValue/],
-    xpath_query => './@type',
-);
+has_xpath_value 'type' => './@type';
 
 
-has 'use' => (
-    traits      => [qw/XPathValue/],
-    xpath_query => './@use',
-);
+has_xpath_value 'use' => './@use';
 
-no Moose;
-__PACKAGE__->meta->make_immutable();
-
+finalize_class();
 1;
 
 
-__END__
+
 =pod
 
 =encoding utf-8
@@ -45,7 +33,7 @@ W3C::XMLSchema::Attribute - XMLSchema Attribute Definition
 
 =head1 VERSION
 
-version 0.0.2
+version 0.0.3
 
 =head1 DESCRIPTION
 
@@ -69,14 +57,17 @@ If the attribute is required or not. A string with the value 'required' or 'opti
 
 =head1 AUTHOR
 
-  Robin Smidsrød <robin@smidsrod.no>
+Robin Smidsrød <robin@smidsrod.no>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Robin Smidsrød.
+This software is copyright (c) 2011 by Robin Smidsrød.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
 

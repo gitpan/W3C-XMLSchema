@@ -3,6 +3,9 @@
 use strict;
 use warnings;
 
+# PODNAME: xsd_structure
+# ABSTRACT: Structure information from an XSD (XML Schema Definition) file
+
 use W3C::XMLSchema;
 
 my $xsd=W3C::XMLSchema->new( file => shift );
@@ -28,3 +31,30 @@ foreach my $group ( @{ $xsd->groups } ) {
 
 print "-" x 20, "\n";
 print "Dump finished.\n";
+
+__END__
+=pod
+
+=encoding utf-8
+
+=head1 NAME
+
+xsd_structure - Structure information from an XSD (XML Schema Definition) file
+
+=head1 VERSION
+
+version 0.0.3
+
+=head1 AUTHOR
+
+Robin Smidsrød <robin@smidsrod.no>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Robin Smidsrød.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
