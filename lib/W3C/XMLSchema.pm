@@ -3,7 +3,7 @@ use warnings;
 
 package W3C::XMLSchema;
 {
-  $W3C::XMLSchema::VERSION = '0.0.3';
+  $W3C::XMLSchema::VERSION = '0.0.4';
 }
 use XML::Rabbit::Root 0.1.0;
 
@@ -31,7 +31,7 @@ has_xpath_object_list 'elements' => './xsd:element' => 'W3C::XMLSchema::Element'
 finalize_class();
 1;
 
-
+__END__
 
 =pod
 
@@ -43,7 +43,7 @@ W3C::XMLSchema - Parser for W3C XML Schema Definition (XSD)
 
 =head1 VERSION
 
-version 0.0.3
+version 0.0.4
 
 =head1 SYNOPSIS
 
@@ -130,7 +130,7 @@ L<XML::LibXML>
 
 =back
 
-=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 SUPPORT
 
@@ -146,6 +146,14 @@ The following websites have more information about this module, and may be of he
 in addition to those websites please use your favorite search engine to discover more resources.
 
 =over 4
+
+=item *
+
+MetaCPAN
+
+A modern, open-source CPAN search engine, useful to view POD in HTML format.
+
+L<http://metacpan.org/release/W3C-XMLSchema>
 
 =item *
 
@@ -167,7 +175,7 @@ L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=W3C-XMLSchema>
 
 AnnoCPAN
 
-The AnnoCPAN is a website that allows community annonations of Perl module documentation.
+The AnnoCPAN is a website that allows community annotations of Perl module documentation.
 
 L<http://annocpan.org/dist/W3C-XMLSchema>
 
@@ -207,7 +215,7 @@ L<http://www.cpantesters.org/distro/W/W3C-XMLSchema>
 
 CPAN Testers Matrix
 
-The CPAN Testers Matrix is a website that provides a visual way to determine what Perls/platforms PASSed for a distribution.
+The CPAN Testers Matrix is a website that provides a visual overview of the test results for a distribution on various Perls/platforms.
 
 L<http://matrix.cpantesters.org/?dist=W3C-XMLSchema>
 
@@ -243,13 +251,9 @@ Robin Smidsrød <robin@smidsrod.no>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Robin Smidsrød.
+This software is copyright (c) 2013 by Robin Smidsrød.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

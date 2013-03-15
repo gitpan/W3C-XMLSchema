@@ -12,7 +12,6 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Parser for W3C XML Schema Definition (XSD)",
   "AUTHOR" => "Robin Smidsr\303\270d <robin\@smidsrod.no>",
   "BUILD_REQUIRES" => {
-    "English" => 0,
     "Test::More" => 0
   },
   "CONFIGURE_REQUIRES" => {
@@ -25,11 +24,11 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "W3C::XMLSchema",
   "PREREQ_PM" => {
-    "XML::Rabbit" => "0.0.2",
+    "XML::Rabbit" => "0.000200",
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.0.3",
+  "VERSION" => "0.0.4",
   "test" => {
     "TESTS" => "t/*.t"
   }

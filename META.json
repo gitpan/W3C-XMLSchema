@@ -4,7 +4,7 @@
       "Robin Smidsr\u00c3\u00b8d <robin@smidsrod.no>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "Dist::Zilla version 4.300030, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -19,18 +19,24 @@
             "ExtUtils::MakeMaker" : "6.30"
          }
       },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
       "runtime" : {
          "requires" : {
-            "XML::Rabbit" : "v0.0.2",
+            "XML::Rabbit" : "0.000200",
             "perl" : "5.008",
-            "strict" : 0,
-            "warnings" : 0
+            "strict" : "0",
+            "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "English" : 0,
-            "Test::More" : 0
+            "Test::More" : "0"
          }
       }
    },
@@ -42,6 +48,9 @@
          "web" : "http://github.com/robinsmidsrod/W3C-XMLSchema"
       }
    },
-   "version" : "0.0.3"
+   "version" : "0.0.4",
+   "x_help_wanted" : [
+      "coder"
+   ]
 }
 

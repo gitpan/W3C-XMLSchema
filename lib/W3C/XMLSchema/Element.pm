@@ -3,7 +3,7 @@ use warnings;
 
 package W3C::XMLSchema::Element;
 {
-  $W3C::XMLSchema::Element::VERSION = '0.0.3';
+  $W3C::XMLSchema::Element::VERSION = '0.0.4';
 }
 use XML::Rabbit;
 
@@ -27,7 +27,7 @@ has_xpath_value 'maxOccurs' => './@maxOccurs';
 finalize_class();
 1;
 
-
+__END__
 
 =pod
 
@@ -39,7 +39,7 @@ W3C::XMLSchema::Element - XMLSchema Element Definition
 
 =head1 VERSION
 
-version 0.0.3
+version 0.0.4
 
 =head1 DESCRIPTION
 
@@ -75,13 +75,9 @@ Robin Smidsrød <robin@smidsrod.no>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Robin Smidsrød.
+This software is copyright (c) 2013 by Robin Smidsrød.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
